@@ -451,7 +451,7 @@
       </div>
       <p class="calc-note">Ориентировочная стоимость (~). Точный расчёт после уточнения условий.</p>
       <div class="calc-cta">
-        <a href="mailto:rabota-kadry@internet.ru" class="btn">Оставить заявку</a>
+        <a href="#quiz" class="btn">Оставить заявку</a>
       </div>
     </div>
   </section>
@@ -566,7 +566,9 @@
     })();
   </script>
   <!-- Для Netlify: заявки уходят через функцию. Для PHP-хостинга замените на: window.TELEGRAM_API_URL = 'send-telegram.php'; -->
-  <script>window.TELEGRAM_API_URL = '/.netlify/functions/send-to-telegram';</script>
-  <script src="telegram-forms.js"></script>
+  <script>
+    window.TELEGRAM_API_URL = (window.location.origin || '') + '/.netlify/functions/send-to-telegram';
+  </script>
+  <script src="js/telegram-forms.js"></script>
 </body>
 </html>
