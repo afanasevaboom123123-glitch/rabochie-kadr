@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рабочие кадры — Аутстаффинг персонала</title>
+  <meta name="description" content="Аутстаффинг персонала под ключ. Оформление, проверки и отчётность — на нашей стороне. Работаем со всеми регионами России.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-900: #0f2922;
+      --green-800: #134e40;
+      --green-600: #047857;
+      --green-500: #059669;
+      --green-400: #34d399;
+      --green-100: #d1fae5;
+      --green-50: #ecfdf5;
+      --green-50-alt: #f0fdf6;
+      --gray-800: #1c1917;
+      --gray-600: #57534e;
+      --gray-500: #78716c;
+      --gray-400: #a8a29e;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', -apple-system, sans-serif; color: var(--gray-800); line-height: 1.6; font-size: 1.0625rem; }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    .container-wide { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 56px 0; }
+    h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.5rem, 2.5vw, 1.9375rem); font-weight: 600; letter-spacing: -0.01em; }
+    h3 { font-size: 1.0625rem; font-weight: 600; margin-bottom: 4px; }
+    p { color: var(--gray-600); margin-bottom: 0; font-size: 1rem; }
+    a { color: var(--green-600); text-decoration: none; }
+    a:hover { color: var(--green-800); }
+
+    .logo { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; margin-bottom: 28px; }
+    .logo svg { width: 100%; height: 100%; }
+    .section-label { font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--green-600); margin-bottom: 10px; }
+
+    .hero { background: var(--green-900); color: var(--white); padding: 88px 0 100px; text-align: center; }
+    .hero h1 { color: var(--white); margin-bottom: 16px; font-weight: 600; }
+    .hero .service-label { font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green-400); margin-bottom: 10px; }
+    .hero .sub { font-size: 1.125rem; line-height: 1.7; max-width: 500px; margin: 0 auto 32px; color: rgba(255,255,255,0.9); }
+    .hero .regions { font-size: 0.9375rem; color: rgba(255,255,255,0.75); margin-top: 24px; }
+    .hero .cta { display: inline-block; background: var(--white); color: var(--green-900); padding: 14px 28px; border-radius: 6px; font-weight: 600; font-size: 0.9375rem; transition: opacity 0.2s; margin-top: 6px; }
+    .hero .cta:hover { opacity: 0.92; text-decoration: none; }
+
+    .for-who { background: var(--white); }
+    .for-who h2 { margin-bottom: 32px; color: var(--gray-800); }
+    .for-who .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (max-width: 640px) { .for-who .cards { grid-template-columns: 1fr; } }
+    .for-who .card { padding: 24px 20px; border: 1px solid var(--green-100); border-radius: 10px; background: var(--white); }
+    .for-who .card .num { font-size: 0.75rem; font-weight: 600; color: var(--green-600); margin-bottom: 8px; }
+    .for-who .card h3 { color: var(--green-800); margin-bottom: 6px; font-size: 1rem; }
+    .for-who .card p { font-size: 0.9375rem; color: var(--gray-600); line-height: 1.5; }
+
+    .problem-solution { background: var(--white); }
+    .problem-solution .was-now { display: flex; align-items: stretch; gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .problem-solution .was-now .side { flex: 1; min-width: 240px; max-width: 300px; padding: 28px 24px; border-radius: 10px; border: 1px solid var(--green-100); }
+    .problem-solution .was-now .side.before { background: var(--green-50-alt); border-color: var(--gray-400); }
+    .problem-solution .was-now .side.after { background: var(--white); border-color: var(--green-500); }
+    .problem-solution .was-now .side-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+    .problem-solution .was-now .side.before .side-label { color: var(--gray-500); }
+    .problem-solution .was-now .side.after .side-label { color: var(--green-600); }
+    .problem-solution .was-now .side h3 { margin-bottom: 8px; font-size: 1rem; }
+    .problem-solution .was-now .side.before h3 { color: var(--gray-600); }
+    .problem-solution .was-now .side.after h3 { color: var(--green-800); }
+    .problem-solution .was-now .side p { font-size: 0.9375rem; color: var(--gray-600); line-height: 1.6; }
+    .problem-solution .was-now .arrow { display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--green-500); }
+    .problem-solution .was-now .arrow svg { width: 28px; height: 28px; }
+    @media (max-width: 640px) { .problem-solution .was-now { flex-direction: column; align-items: center; } .problem-solution .was-now .arrow { transform: rotate(90deg); } }
+
+    .take-off { background: var(--green-50-alt); }
+    .take-off h2 { margin-bottom: 32px; color: var(--gray-800); }
+    .take-off .list { display: flex; flex-direction: column; gap: 0; }
+    .take-off .item { display: flex; align-items: baseline; gap: 14px; padding: 16px 0; border-bottom: 1px solid rgba(4,120,87,0.12); }
+    .take-off .item:last-child { border-bottom: none; }
+    .take-off .item .check { color: var(--green-500); font-size: 1rem; flex-shrink: 0; }
+    .take-off .item strong { color: var(--gray-800); font-weight: 600; font-size: 0.9375rem; }
+    .take-off .item span.desc { color: var(--gray-600); font-size: 0.9375rem; }
+
+    .how-it-works { background: var(--green-50-alt); }
+    .how-it-works .process-wrap { max-width: 720px; margin: 0 auto; }
+    .how-it-works .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 700px) { .how-it-works .steps-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .how-it-works .steps-grid { grid-template-columns: 1fr; } }
+    .how-it-works .step-card { padding: 20px 18px; background: var(--white); border: 1px solid var(--green-100); border-radius: 10px; }
+    .how-it-works .step-card .num { font-size: 1.25rem; font-weight: 700; color: var(--green-600); margin-bottom: 10px; }
+    .how-it-works .step-card h3 { font-size: 0.9375rem; font-weight: 600; color: var(--gray-800); margin-bottom: 6px; }
+    .how-it-works .step-card p { font-size: 0.875rem; color: var(--gray-600); margin: 0; line-height: 1.5; }
+
+    .why-us { background: var(--green-50-alt); }
+    .why-us h2 { margin-bottom: 28px; color: var(--gray-800); }
+    .why-us .reasons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    @media (max-width: 768px) { .why-us .reasons { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .why-us .reasons { grid-template-columns: 1fr; } }
+    .why-us .reason h3 { color: var(--green-800); font-size: 0.9375rem; margin-bottom: 4px; }
+    .why-us .reason p { font-size: 0.875rem; color: var(--gray-600); }
+
+    .result { background: var(--white); }
+    .result h2 { margin-bottom: 28px; color: var(--gray-800); }
+    .result .outcomes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (max-width: 640px) { .result .outcomes { grid-template-columns: 1fr; } }
+    .result .outcome { padding: 20px; border-left: 3px solid var(--green-500); background: var(--green-50); border-radius: 0 8px 8px 0; }
+    .result .outcome .num { font-size: 0.75rem; font-weight: 600; color: var(--green-600); margin-bottom: 6px; }
+    .result .outcome p { font-size: 0.9375rem; color: var(--gray-700); margin: 0; line-height: 1.5; }
+
+    .quiz-section { background: var(--green-900); color: var(--white); padding: 56px 0; }
+    .quiz-section .container { max-width: 480px; }
+    .quiz-section h2 { color: var(--white); margin-bottom: 8px; font-size: 1.5rem; }
+    .quiz-section .quiz-desc { font-size: 0.9375rem; color: rgba(255,255,255,0.8); margin-bottom: 28px; }
+    .quiz-section .progress-wrap { height: 6px; background: rgba(255,255,255,0.2); border-radius: 3px; margin-bottom: 28px; overflow: hidden; }
+    .quiz-section .progress-bar { height: 100%; background: var(--green-400); border-radius: 3px; transition: width 0.3s; width: 20%; }
+    .quiz-section .progress-bar.step-2 { width: 40%; }
+    .quiz-section .progress-bar.step-3 { width: 60%; }
+    .quiz-section .progress-bar.step-4 { width: 80%; }
+    .quiz-section .progress-bar.step-5 { width: 100%; }
+    .quiz-section select {
+      width: 100%; padding: 14px 18px; font-size: 1rem; font-family: inherit;
+      border: 1px solid rgba(255,255,255,0.25); border-radius: 8px;
+      background: var(--white); color: var(--gray-800); cursor: pointer;
+      -webkit-appearance: none; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2357534e' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px;
+    }
+    .quiz-section .q-title { font-size: 0.9375rem; font-weight: 600; color: var(--white); margin-bottom: 16px; }
+    .quiz-section .options { display: flex; flex-direction: column; gap: 10px; }
+    .quiz-section .option {
+      display: block; padding: 14px 18px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px; color: var(--white); font-size: 0.9375rem; cursor: pointer; transition: background 0.2s, border-color 0.2s;
+    }
+    .quiz-section .option:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.25); }
+    .quiz-section .option:has(input:checked) {
+      background: rgba(52, 211, 153, 0.35);
+      border-color: var(--green-400);
+      color: var(--white);
+    }
+    .quiz-section .option input { display: none; }
+    .quiz-section .people-input-wrap { margin-bottom: 14px; }
+    .quiz-section .people-input-wrap input[type="number"] {
+      width: 100%; max-width: 180px; padding: 12px 14px; font-size: 1rem;
+      border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; background: var(--white); color: var(--gray-800);
+    }
+    .quiz-section .btn-next:disabled { opacity: 0.5; cursor: not-allowed; }
+    .quiz-section .quiz-step { display: none; }
+    .quiz-section .quiz-step.active { display: block; }
+    .quiz-section .quiz-nav { margin-top: 24px; display: flex; gap: 12px; align-items: center; }
+    .quiz-section .btn-next, .quiz-section .btn-prev {
+      padding: 12px 24px; border-radius: 8px; font-family: inherit; font-size: 0.9375rem; font-weight: 600; cursor: pointer; border: none;
+    }
+    .quiz-section .btn-next { background: var(--white); color: var(--green-900); }
+    .quiz-section .btn-next:hover { opacity: 0.92; }
+    .quiz-section .btn-prev { background: transparent; color: rgba(255,255,255,0.8); }
+    .quiz-section .btn-prev:hover { color: var(--white); }
+    .quiz-section .quiz-final .form-inner { display: flex; flex-direction: column; gap: 14px; }
+    .quiz-section .quiz-final input {
+      width: 100%; padding: 12px 14px; border: 1px solid rgba(255,255,255,0.25); border-radius: 8px;
+      font-family: inherit; font-size: 1rem; color: var(--gray-800); background: var(--white);
+    }
+    .quiz-section .quiz-final label { font-size: 0.875rem; color: rgba(255,255,255,0.9); margin-bottom: 4px; display: block; }
+    .quiz-section .quiz-final .submit { padding: 14px 24px; background: var(--white); color: var(--green-900); border: none; border-radius: 8px; font-weight: 600; font-size: 0.9375rem; cursor: pointer; }
+    .quiz-section .quiz-final .submit:hover { opacity: 0.92; }
+    .quiz-section .reward { font-size: 0.875rem; color: var(--green-100); margin-bottom: 20px; }
+
+    .online-form { background: var(--white); }
+    .online-form h2 { margin-bottom: 24px; color: var(--gray-800); }
+    .online-form .form-inner { max-width: 380px; display: flex; flex-direction: column; gap: 14px; }
+    .online-form label { font-size: 0.9375rem; font-weight: 500; color: var(--gray-800); display: block; margin-bottom: 4px; }
+    .online-form input, .online-form textarea {
+      width: 100%; padding: 12px 14px; border: 1px solid var(--green-100); border-radius: 8px;
+      font-family: inherit; font-size: 1rem; color: var(--gray-800); background: var(--white);
+    }
+    .online-form input:focus, .online-form textarea:focus { outline: none; border-color: var(--green-500); }
+    .online-form textarea { min-height: 76px; resize: vertical; }
+    .online-form .consent { font-size: 0.8125rem; color: var(--gray-600); display: flex; align-items: flex-start; gap: 10px; }
+    .online-form .consent input { width: auto; margin-top: 2px; }
+    .online-form .submit { padding: 14px 24px; background: var(--green-600); color: var(--white); border: none; border-radius: 8px; font-family: inherit; font-size: 0.9375rem; font-weight: 600; cursor: pointer; align-self: flex-start; }
+    .online-form .submit:hover { background: var(--green-800); }
+
+    .cta-block { background: var(--green-800); color: var(--white); text-align: center; padding: 56px 24px; }
+    .cta-block h2 { color: var(--white); margin-bottom: 10px; font-weight: 600; font-size: 1.5rem; }
+    .cta-block .cta-desc { color: rgba(255,255,255,0.88); margin-bottom: 16px; font-size: 0.9375rem; }
+    .cta-block .cta-flow { font-size: 0.875rem; color: rgba(255,255,255,0.7); margin-bottom: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 10px; }
+    .cta-block .cta-flow .arr { color: var(--green-400); }
+    .cta-block .cta-discount { font-size: 0.875rem; color: var(--green-100); margin-bottom: 24px; padding: 10px 18px; background: rgba(255,255,255,0.08); border-radius: 8px; display: inline-block; }
+    .cta-block .cta-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px; }
+    .cta-block .btn { display: inline-block; background: var(--white); color: var(--green-900); padding: 14px 28px; border-radius: 6px; font-weight: 600; font-size: 0.9375rem; }
+    .cta-block .btn:hover { opacity: 0.92; text-decoration: none; }
+    .cta-block .chats { display: flex; gap: 10px; }
+    .cta-block .chats a { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: rgba(255,255,255,0.12); color: var(--white); border-radius: 8px; transition: background 0.2s; }
+    .cta-block .chats a:hover { background: rgba(255,255,255,0.22); text-decoration: none; color: var(--white); }
+    .cta-block .chats a svg { width: 22px; height: 22px; }
+
+    footer { background: var(--green-900); color: var(--white); padding: 48px 24px 28px; }
+    footer .container { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 28px; }
+    footer a { color: rgba(255,255,255,0.78); }
+    footer a:hover { color: var(--white); }
+    footer .footer-block p { margin-bottom: 4px; font-size: 0.9375rem; color: rgba(255,255,255,0.85); }
+    footer .footer-block .title { font-weight: 600; color: var(--white); margin-bottom: 8px; font-size: 0.875rem; }
+    footer .footer-block .hours { font-size: 0.8125rem; color: rgba(255,255,255,0.6); }
+    footer .copy { color: rgba(255,255,255,0.5); font-size: 0.8125rem; margin-top: 28px; width: 100%; }
+    footer .legal { color: rgba(255,255,255,0.45); font-size: 0.75rem; margin-top: 6px; width: 100%; }
+
+    .cookie-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--gray-800); color: var(--white); padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; z-index: 1000; box-shadow: 0 -4px 16px rgba(0,0,0,0.12); }
+    .cookie-bar.hidden { display: none; }
+    .cookie-bar p { margin: 0; font-size: 0.875rem; color: rgba(255,255,255,0.9); flex: 1; min-width: 180px; }
+    .cookie-bar a { color: var(--green-400); }
+    .cookie-bar .accept { padding: 8px 18px; background: var(--green-600); color: var(--white); border: none; border-radius: 6px; font-family: inherit; font-size: 0.875rem; font-weight: 500; cursor: pointer; }
+    .cookie-bar .accept:hover { background: var(--green-500); }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="container">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.9"/>
+          <circle cx="14" cy="18" r="3.5" fill="currentColor" opacity="0.95"/>
+          <path d="M10 28c0-2.2 1.8-4 4-4s4 1.8 4 4v2H10v-2z" fill="currentColor" opacity="0.95"/>
+          <circle cx="24" cy="18" r="3.5" fill="currentColor" opacity="0.95"/>
+          <path d="M20 28c0-2.2 1.8-4 4-4s4 1.8 4 4v2h-8v-2z" fill="currentColor" opacity="0.95"/>
+          <circle cx="34" cy="18" r="3.5" fill="currentColor" opacity="0.95"/>
+          <path d="M30 28c0-2.2 1.8-4 4-4s4 1.8 4 4v2h-8v-2z" fill="currentColor" opacity="0.95"/>
+        </svg>
+      </div>
+      <p class="service-label">Аутстаффинг</p>
+      <h1>Рабочие кадры</h1>
+      <p class="sub">Персонал под ключ. Оформление, проверки и ответственность — на нашей стороне. Вы получаете людей в команду без кадровой и миграционной нагрузки.</p>
+      <p class="regions">Работаем со всеми регионами России</p>
+      <a href="#quiz" class="cta">Рассчитать стоимость</a>
+    </div>
+  </section>
+
+  <section class="for-who">
+    <div class="container-wide">
+      <div class="section-label">Кому подойдёт</div>
+      <h2>Наши клиенты</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="num">01</div>
+          <h3>ИП и малый бизнес</h3>
+          <p>Нужно вывести одного или нескольких сотрудников за штат — оформляем и ведём учёт.</p>
+        </div>
+        <div class="card">
+          <div class="num">02</div>
+          <h3>Средний бизнес</h3>
+          <p>Штат с мигрантами, риск штрафов при проверках — берём оформление и отчётность на себя.</p>
+        </div>
+        <div class="card">
+          <div class="num">03</div>
+          <h3>Компании с сезонным пиком</h3>
+          <p>Нужны люди на объекты без расширения штата и кадровой нагрузки.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="problem-solution">
+    <div class="container">
+      <div class="was-now">
+        <div class="side before">
+          <div class="side-label">Было</div>
+          <h3>Самостоятельный найм</h3>
+          <p>Оформление, патенты, проверки — всё на вас. Риски и время тоже.</p>
+        </div>
+        <div class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="side after">
+          <div class="side-label">Стало</div>
+          <h3>Персонал через нас</h3>
+          <p>Мы — работодатель по документам. Оформляем, платим, отвечаем. Вы используете труд.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="take-off">
+    <div class="container">
+      <div class="section-label">Ваша выгода</div>
+      <h2>Что мы снимаем с ваших плеч</h2>
+      <div class="list">
+        <div class="item"><span class="check">✓</span><div><strong>Документы и миграционный учёт</strong> <span class="desc">— ведём сами</span></div></div>
+        <div class="item"><span class="check">✓</span><div><strong>Проверки госорганов</strong> <span class="desc">— проверяют нас, к вам претензий нет</span></div></div>
+        <div class="item"><span class="check">✓</span><div><strong>Риски при найме</strong> <span class="desc">— официальное трудоустройство на нашей стороне</span></div></div>
+        <div class="item"><span class="check">✓</span><div><strong>Зарплаты и отчётность</strong> <span class="desc">— ведём мы</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <div class="container">
+      <div class="process-wrap">
+        <div class="section-label">Процесс</div>
+        <div class="steps-grid">
+          <div class="step-card"><div class="num">01</div><h3>Заявка</h3><p>Оставляете заявку на сайте или звоните менеджеру.</p></div>
+          <div class="step-card"><div class="num">02</div><h3>Консультация</h3><p>Выявляем ваши потребности и определяем необходимое решение.</p></div>
+          <div class="step-card"><div class="num">03</div><h3>Подготовка и аудит документов</h3><p>Проверяем все необходимые документы для трудоустройства иностранных сотрудников.</p></div>
+          <div class="step-card"><div class="num">04</div><h3>Подача сведений</h3><p>В МВД подаются сведения о регистрации сотрудников. Заявление подаётся в тот же день, без задержек.</p></div>
+          <div class="step-card"><div class="num">05</div><h3>Официальное трудоустройство</h3><p>Ваши сотрудники официально начинают работать в нашем штате.</p></div>
+          <div class="step-card"><div class="num">06</div><h3>Выплаты и отчётность</h3><p>Раз в месяц выставляем для вас счёт. Сами производим выплаты сотрудникам и сдаём отчётность в срок.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-us">
+    <div class="container-wide">
+      <div class="section-label">Преимущества</div>
+      <h2>Почему выбирают нас</h2>
+      <div class="reasons">
+        <div class="reason"><h3>Под ключ</h3><p>Кадры, бухгалтерия, налоги, миграция — всё в одной услуге</p></div>
+        <div class="reason"><h3>Законно</h3><p>Трудоустройство по ТК РФ, без серых схем</p></div>
+        <div class="reason"><h3>Без ваших рисков</h3><p>При проверках отвечаем мы</p></div>
+        <div class="reason"><h3>Один контакт</h3><p>Один договор, одна точка ответственности</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="result">
+    <div class="container-wide">
+      <div class="section-label">Итог</div>
+      <h2>В результате вы получаете</h2>
+      <div class="outcomes">
+        <div class="outcome"><div class="num">01</div><p>Забываете о трудоустройстве мигрантов и рисках при неправильном оформлении</p></div>
+        <div class="outcome"><div class="num">02</div><p>Не тратите время на кадровую и бухгалтерскую отчётность</p></div>
+        <div class="outcome"><div class="num">03</div><p>Нет проблем с контролирующими органами</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quiz-section" id="quiz">
+    <div class="container">
+      <h2>Рассчитайте стоимость за 1 минуту</h2>
+      <p class="quiz-desc">Ответьте на 4 вопроса — пришлём примерный расчёт и свяжемся с вами.</p>
+      <div class="progress-wrap"><div class="progress-bar" id="quiz-progress"></div></div>
+
+      <div class="quiz-step active" data-step="1">
+        <p class="q-title">Сколько человек нужно вывести за штат?</p>
+        <div class="people-input-wrap">
+          <input type="number" id="quiz-people" name="people" min="1" max="999" placeholder="Введите число" value="">
+        </div>
+        <div class="quiz-nav"><button type="button" class="btn-next" id="quiz-next-1" data-goto="2" disabled>Далее</button></div>
+      </div>
+
+      <div class="quiz-step" data-step="2">
+        <p class="q-title">Гражданство сотрудников</p>
+        <div class="people-input-wrap">
+          <select id="quiz-citizenship" name="citizenship" required>
+            <option value="РФ">РФ</option>
+            <option value="Страны ЕАЭС">Страны ЕАЭС</option>
+            <option value="Страны СНГ">Страны СНГ</option>
+          </select>
+        </div>
+        <div class="quiz-nav"><button type="button" class="btn-prev" data-goto="1">Назад</button><button type="button" class="btn-next" id="quiz-next-2" data-goto="3">Далее</button></div>
+      </div>
+
+      <div class="quiz-step" data-step="3">
+        <p class="q-title">Оформление по трудовому договору или ГПХ?</p>
+        <div class="options">
+          <label class="option"><input type="radio" name="q2" value="Трудовой договор"> Трудовой договор</label>
+          <label class="option"><input type="radio" name="q2" value="ГПХ"> ГПХ</label>
+          <label class="option"><input type="radio" name="q2" value="Нужна консультация"> Нужна консультация</label>
+        </div>
+        <div class="quiz-nav"><button type="button" class="btn-prev" data-goto="2">Назад</button><button type="button" class="btn-next" id="quiz-next-3" data-goto="4" disabled>Далее</button></div>
+      </div>
+
+      <div class="quiz-step" data-step="4">
+        <p class="q-title">Как удобнее получить расчёт?</p>
+        <div class="options">
+          <label class="option"><input type="radio" name="q3" value="Звонок"> Звонок</label>
+          <label class="option"><input type="radio" name="q3" value="WhatsApp"> WhatsApp</label>
+          <label class="option"><input type="radio" name="q3" value="Telegram"> Telegram</label>
+        </div>
+        <div class="quiz-nav"><button type="button" class="btn-prev" data-goto="3">Назад</button><button type="button" class="btn-next" id="quiz-next-4" data-goto="5" disabled>Далее</button></div>
+      </div>
+
+      <div class="quiz-step quiz-final" data-step="5">
+        <p class="reward">После отправки мы рассчитаем стоимость и свяжемся с вами в течение 5 минут.</p>
+        <form class="form-inner" id="quiz-form">
+          <div><label for="quiz-name">Имя</label><input type="text" id="quiz-name" name="name" placeholder="Ваше имя" required></div>
+          <div><label for="quiz-phone">Телефон</label><input type="tel" id="quiz-phone" name="phone" placeholder="+7 (___) ___-__-__" required></div>
+          <button type="submit" class="submit">Получить расчёт</button>
+        </form>
+        <div class="quiz-nav" style="margin-top:16px"><button type="button" class="btn-prev" data-goto="4">Назад</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="online-form" id="request">
+    <div class="container">
+      <div class="section-label">Заявка</div>
+      <h2>Онлайн-заявка</h2>
+      <form class="form-inner" id="lead-form">
+        <div><label for="region">Регион</label><input type="text" id="region" name="region" placeholder="Например: Москва" required></div>
+        <div><label for="name">Имя</label><input type="text" id="name" name="name" placeholder="Ваше имя" required></div>
+        <div><label for="phone">Телефон</label><input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required></div>
+        <div><label for="comment">Комментарий</label><textarea id="comment" name="comment" placeholder="Количество человек, срок, отрасль"></textarea></div>
+        <label class="consent"><input type="checkbox" name="consent" required><span>Нажимая «Отправить», даю согласие на обработку персональных данных.</span></label>
+        <button type="submit" class="submit">Отправить</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="cta-block" id="contact">
+    <div class="container">
+      <h2>Получить персонал</h2>
+      <p class="cta-desc">Рассчитаем примерную стоимость и обсудим условия. Без обязательств.</p>
+      <div class="cta-flow"><span>Заявка</span><span class="arr">→</span><span>оценка</span><span class="arr">→</span><span>договор</span></div>
+      <div class="cta-discount">При договоре на год — скидка 10%.</div>
+      <div class="cta-actions">
+        <a href="mailto:info@example.com" class="btn">Оставить заявку</a>
+        <div class="chats">
+          <a href="https://t.me/example" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.611-.06-2.586-.347-1.326-.466-2.076-.76-3.364-1.246-1.584-.6-2.782-.927-2.68-1.967.05-.493.3-.996.923-1.508.677-.57 1.844-1.327 2.516-1.98.57-.548.1-1.017-.17-1.114-.73-.26-2.06-.48-2.964-.485-.96-.008-1.368.207-1.946.406-.786.273-1.41.4-1.355.846.027.262.355.532.98.77 1.56.663 2.71.87 3.96 1.327.36.133.69.27 1.02.405 2.01.72 3.84 1.1 4.53 1.28.21.055.41.08.59.08.18.005.53-.04.73-.29.19-.25.24-.56.2-.96-.07-.72-.35-1.8-.61-2.59-.45-1.4-.9-2.34-.9-2.34-.18-.39-.36-.34-.36-.34l-.27.03s-.34.08-.49.3c-.15.22-.58.73-.58.73s-.22-.18-.37-.28c-.15-.1-.32-.14-.32-.14h-.26s-.31.01-.44.15c-.12.13-.47.46-.47.46s-.18-.16-.46-.39c-.27-.22-.58-.37-.62-.39-.03-.01-.07-.02-.1-.02-.2 0-.5.08-.73.41-.23.33-.88 1.15-.88 1.15s-.07-.08-.17-.2c-.1-.12-.23-.27-.33-.36-.1-.09-.2-.15-.2-.15l-.12-.02s-.22 0-.34.1c-.12.1-.23.29-.23.29s-.12-.22-.27-.33c-.15-.1-.36-.14-.36-.14h-.31s-.46.07-.63.32c-.17.25-.65.76-.65.76s-.33.44-.77.68c-.11.06-.2.1-.27.13-.2.08-.32.1-.32.1l-.08.01s-.12-.02-.17-.1c-.05-.08-.04-.17-.04-.17s.03-.25.08-.47c.06-.22.18-.5.32-.77.18-.34.4-.7.7-1.06.36-.44.78-.85 1.26-1.2.5-.37 1.04-.66 1.6-.88.56-.22 1.14-.33 1.73-.34z"/></svg></a>
+          <a href="https://wa.me/78001234567" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-block">
+        <p class="title">Коммерческий отдел</p>
+        <p><a href="tel:+78001234567">+7 (800) 123-45-67</a></p>
+        <p><a href="mailto:info@example.com">info@example.com</a></p>
+        <p class="hours">Пн–Вс 10:00–22:00</p>
+      </div>
+      <div class="footer-block">
+        <p class="title">Адрес</p>
+        <p>г. Москва, ул. Примерная, д. 1, офис 100</p>
+      </div>
+      <p class="copy">© Рабочие кадры. Аутстаффинг персонала.</p>
+      <p class="legal">ООО «Рабочие кадры» · ИНН 0000000000 · ОГРН 0000000000000</p>
+    </div>
+  </footer>
+
+  <div class="cookie-bar" id="cookie-bar">
+    <p>Мы используем cookies. Продолжая, вы соглашаетесь с <a href="#">политикой конфиденциальности</a>.</p>
+    <button type="button" class="accept" id="cookie-accept">Принять</button>
+  </div>
+
+  <script>
+    (function() {
+      var cookieBtn = document.getElementById('cookie-accept');
+      if (cookieBtn) cookieBtn.addEventListener('click', function() { document.getElementById('cookie-bar').classList.add('hidden'); try { localStorage.setItem('cookie-accepted', '1'); } catch(e) {} });
+      try { if (localStorage.getItem('cookie-accepted')) document.getElementById('cookie-bar').classList.add('hidden'); } catch(e) {}
+
+      var progress = document.getElementById('quiz-progress');
+      var steps = document.querySelectorAll('.quiz-section .quiz-step');
+      var peopleInput = document.getElementById('quiz-people');
+      var next1 = document.getElementById('quiz-next-1');
+      var next3 = document.getElementById('quiz-next-3');
+      var next4 = document.getElementById('quiz-next-4');
+
+      function goStep(n) {
+        var num = parseInt(n, 10);
+        steps.forEach(function(s) { s.classList.remove('active'); if (parseInt(s.dataset.step, 10) === num) s.classList.add('active'); });
+        if (progress) { progress.className = 'progress-bar'; if (num >= 2) progress.classList.add('step-' + num); progress.style.width = (num * 20) + '%'; }
+        if (num === 3) checkStep3();
+        if (num === 4) checkStep4();
+      }
+      function checkStep1() { var v = parseInt(peopleInput.value, 10); next1.disabled = !(v >= 1); }
+      function checkStep3() { next3.disabled = !document.querySelector('input[name="q2"]:checked'); }
+      function checkStep4() { next4.disabled = !document.querySelector('input[name="q3"]:checked'); }
+
+      if (peopleInput) { peopleInput.addEventListener('input', checkStep1); peopleInput.addEventListener('change', checkStep1); }
+      document.querySelectorAll('input[name="q2"]').forEach(function(r) { r.addEventListener('change', checkStep3); });
+      document.querySelectorAll('input[name="q3"]').forEach(function(r) { r.addEventListener('change', checkStep4); });
+
+      document.querySelectorAll('.quiz-section .btn-next').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          if (btn.disabled) return;
+          var to = btn.dataset.goto;
+          if (to === '2' && !(parseInt(peopleInput.value, 10) >= 1)) return;
+          if (to === '4' && !document.querySelector('input[name="q2"]:checked')) return;
+          if (to === '5' && !document.querySelector('input[name="q3"]:checked')) return;
+          goStep(to);
+        });
+      });
+      document.querySelectorAll('.quiz-section .btn-prev').forEach(function(btn) {
+        btn.addEventListener('click', function() { goStep(btn.dataset.goto); });
+      });
+
+      // Отправка заявок в Telegram (обработчики в js/telegram-forms.js)
+    })();
+  </script>
+  <!-- Для Netlify: заявки уходят через функцию. Для PHP-хостинга замените на: window.TELEGRAM_API_URL = 'send-telegram.php'; -->
+  <script>window.TELEGRAM_API_URL = '/.netlify/functions/send-to-telegram';</script>
+  <script src="js/telegram-forms.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проверка отправки в Telegram</title>
+  <style>
+    body { font-family: sans-serif; max-width: 560px; margin: 40px auto; padding: 0 20px; }
+    h1 { font-size: 1.25rem; }
+    button { padding: 12px 20px; font-size: 1rem; cursor: pointer; background: #047857; color: #fff; border: none; border-radius: 8px; }
+    button:hover { background: #065f46; }
+    #result { margin-top: 20px; padding: 16px; background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; white-space: pre-wrap; word-break: break-all; font-size: 0.9rem; }
+    #result.error { background: #fef2f2; border-color: #fecaca; }
+    #result.pending { background: #fefce8; border-color: #fef08a; }
+  </style>
+</head>
+<body>
+  <h1>Проверка отправки заявки в Telegram</h1>
+  <p>Нажмите кнопку — будет отправлена тестовая заявка. Ниже появится ответ сервера (код и текст ошибки, если есть).</p>
+  <button type="button" id="btn">Отправить тестовую заявку</button>
+  <div id="result"></div>
+
+  <script>
+    (function() {
+      var API_URL = window.TELEGRAM_API_URL || '/.netlify/functions/send-to-telegram';
+      var resultEl = document.getElementById('result');
+      var btn = document.getElementById('btn');
+
+      function show(msg, isError) {
+        resultEl.textContent = msg;
+        resultEl.className = isError ? 'error' : (msg.indexOf('успешно') !== -1 ? '' : 'pending');
+      }
+
+      btn.addEventListener('click', function() {
+        btn.disabled = true;
+        show('Отправка...');
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', API_URL, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState !== 4) return;
+          btn.disabled = false;
+          var body = '';
+          try { body = JSON.parse(xhr.responseText || '{}'); } catch (e) { body = { error: xhr.responseText }; }
+          var msg = 'Код ответа: ' + xhr.status + '\n\n';
+          if (body.error) msg += 'Ошибка: ' + body.error + '\n\n';
+          msg += 'Ответ: ' + JSON.stringify(body, null, 2);
+          show(msg, xhr.status !== 200 || body.error);
+        };
+        xhr.onerror = function() {
+          btn.disabled = false;
+          show('Ошибка сети. Проверьте интернет и что сайт задеплоен из Git (функции не работают при загрузке папкой).', true);
+        };
+        xhr.send(JSON.stringify({
+          source: 'online_form',
+          name: 'Тест',
+          phone: '+79991234567',
+          region: 'Проверка',
+          comment: 'Тестовая заявка'
+        }));
+      });
+    })();
+  </script>
+</body>
+</html>
